@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static "assets/e-clinic-logo.svg" %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/compiled/compiled.css' %}" />
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}" />
+    <script src="{% static "js/init-theme.js" %}" defer></script>
+    <script src="{% static "js/set-light-theme.js" %}" defer></script>
+    <script src="{% static "js/set-dark-theme.js" %}" defer></script>
+    
+    {% block head %}
+      <title>E-Clinic</title>
+    {% endblock head %}
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen w-full">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </body>
+</html>

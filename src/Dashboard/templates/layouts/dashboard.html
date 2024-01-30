@@ -1,0 +1,69 @@
+{% extends "layouts/base.html" %} 
+{% load static %}
+
+{% block content %}
+  <div class="drawer lg:drawer-open flex-1">
+    <input id="main-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-1 flex-col">
+      <!-- Page content here -->
+      {% include "components/navbar-dashboard.html" %}
+      
+      {% block dashboard_content %}
+      {% endblock dashboard_content %}
+    </div> 
+    <div class="drawer-side z-50">
+      <label for="main-drawer" aria-label="close sidebar" class="drawer-overlay"></label> 
+      <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <!-- Sidebar content here -->
+        <ul class="menu flex flex-1 w-full bg-base-200 rounded-box">
+          <li><a {% if request.path == 'dashboard/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "dashboard" %}"><i class="fas fa-home"></i>Dashboard</a></li>
+          <li>
+            <details open>
+              <summary class="text-[15pt] mt-[1rem]"><i class="fas fa-user-gear text-[15pt] text-primary"></i>Users</summary>
+              <ul>
+                <li><a {% if request.path == '/auth/users/add/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "add-user" %}"><i class="fas fa-plus"></i>Add user</a></li>
+                <li><a {% if request.path == '/auth/users/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "user-list" %}"><i class="fas fa-list"></i>User list</a></li>
+              </ul>
+            </details>
+            <details open>
+              <summary class="text-[15pt] mt-[1rem]"><i class="fas fa-user text-[15pt] text-primary"></i>Patient</summary>
+              <ul>
+                <li><a {% if request.path == '/dashboard/patients/add/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "add-patient" %}"><i class="fas fa-plus"></i>Add patient</a></li>
+                <li><a {% if request.path == '/dashboard/patients/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "patient-list" %}"><i class="fas fa-list"></i>Patient list</a></li>
+              </ul>
+            </details>
+            <details open>
+              <summary class="text-[15pt] mt-[1rem]"><i class="fas fa-user-doctor text-primary"></i>Medical staff</summary>
+              <ul>
+                <li><a {% if request.path == '/dashboard/medical-staff/add/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "add-medical-staff" %}"><i class="fas fa-plus"></i>Add medical staff</a></li>
+                <li><a {% if request.path == '/dashboard/medical-staff/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "medical-staff-list" %}"><i class="fas fa-list"></i>Medical staff list</a></li>
+              </ul>
+            </details>
+            <details open>
+              <summary class="text-[15pt] mt-[1rem]"><i class="fas fa-building text-primary"></i>Departments</summary>
+              <ul>
+                <li><a {% if request.path == '/dashboard/departments/add/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "add-department" %}"><i class="fas fa-plus"></i>Add department</a></li>
+                <li><a {% if request.path == '/dashboard/departments/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "department-list" %}"><i class="fas fa-list"></i>Department list</a></li>
+              </ul>
+            </details>
+            <details open>
+              <summary class="text-[15pt] mt-[1rem]"><i class="fas fa-id-card-clip text-primary"></i>Specialities</summary>
+              <ul>
+                <li><a {% if request.path == '/dashboard/specialities/add/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "add-speciality" %}"><i class="fas fa-plus"></i>Add speciality</a></li>
+                <li><a {% if request.path == '/dashboard/specialities/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "speciality-list" %}"><i class="fas fa-list"></i>Speciality list</a></li>
+              </ul>
+            </details>
+            <details open>
+              <summary class="text-[15pt] mt-[1rem]"><i class="fas fa-file-powerpoint text-primary"></i>Procedures</summary>
+              <ul>
+                <li><a {% if request.path == '/dashboard/procedures/add/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "add-procedure" %}"><i class="fas fa-plus"></i>Add procedure</a></li>
+                <li><a {% if request.path == '/dashboard/procedures/' %}class="bg-primary text-primary-content"{% endif %} href="{% url "procedure-list" %}"><i class="fas fa-list"></i>Procedure list</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </ul>
+    
+    </div>
+  </div>
+{% endblock content %}

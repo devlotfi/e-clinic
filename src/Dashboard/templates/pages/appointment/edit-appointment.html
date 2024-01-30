@@ -1,0 +1,211 @@
+{% extends "layouts/dashboard.html" %} 
+{% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
+  <title>Edit appointment</title>
+{% endblock head %} 
+
+{% block dashboard_content %}
+  <div class="flex flex-1 flex-col items-center pb-[5rem]">
+    <div class="w-[90%] max-w-[50rem]">
+      <form class="flex flex-1 flex-col" action="" method="post">
+        {% csrf_token %}
+
+        <div class="flex mb-[1rem]">
+          <a class="btn btn-wide" href="{% url "appointment-list-patient" patientId=patient.id %}"><i class="fas fa-angle-left"></i>Back to appointment list</a>
+        </div>
+    
+        <div class="text-[30pt] font-bold"><i class="fas fa-pen text-primary mr-[1rem]"></i>Edit appointment</div>
+        <div class="text-[15pt] font-semibold ml-[1rem] mb-[1rem]"><i class="fas fa-user text-primary mr-[1rem]"></i>Patient: {{patient.firstName}} {{patient.lastName}}</div>
+
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'success' %}
+              <div role="alert" class="alert alert-success mt-[1rem]">
+                <i class="fas fa-check"></i>
+                <span>{{message}}</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+    
+        {% if form.errors %}
+          <div role="alert" class="alert alert-error mt-[1rem]">
+            <i class="fas fa-times"></i>
+            <span>{{form.errors}}</span>
+          </div>
+        {% endif %}
+  
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Date & time</span>
+          </div>
+          {% render_field form.timestamp type="datetime-local" placeholder="Date & time" class+="input input-bordered w-full" %}
+        </label>
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">State</span>
+          </div>
+          {% render_field form.state class+="select select-bordered w-full" %}
+        </label>
+        
+  
+        <button class="btn btn-primary mt-[2rem]"><i class="fas fa-plus"></i>Edit appointment</button>
+      </form>
+  
+      <div class="divider my-[2rem]"></div>
+     
+      <a class="flex" href="{% url "apply-procedure" appointmentId=appointment.id %}">
+        <button class="btn btn-primary btn-outline flex flex-1 mt-[1rem]"><fas class="fa-plus"></fas>Apply procedure</button>
+      </a>
+     
+
+      <div class="text-[25pt] font-bold my-[2rem]"><i class="fas fa-list-check text-primary mr-[1rem]"></i>Applied procedures</div>
+      {% if procedureApplications.count > 0 %}
+        {% regroup procedureApplications by procedure.name as procedureList %}
+        {% for procedure in procedureList %}
+          <div class="flex flex-col p-[0.5rem] bg-base-300 mb-[1rem] rounded-xl">
+            <div class="flex justify-between items-center bg-base-100 p-[0.5rem] rounded-md">
+              <div class="ml-[1rem] font-bold text-[15pt]">{{procedure.grouper}}</div>
+            </div>
+            
+
+            <div class="flex flex-col bg-base-100 rounded-lg p-[1rem] mt-[0.5rem]">
+              <div class="text-[20pt] font-bold my-[0.5rem]"><i class="fas fa-list-check text-primary mr-[1rem]"></i>Medical staff</div>
+              <div class="overflow-x-auto flex-1 flex items-start">
+                <table class="table table-pin-rows table-pin-cols table-zebra">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td>Id</td> 
+                      <td>Department</td>
+                      <td>Speciality</td>
+                      <td>First name</td> 
+                      <td>Last name</td> 
+                      <td>Date of birth</td> 
+                      <td>Address</td> 
+                      <td>Phone number</td>
+                      <td>Email</td>
+                      <td>Gender</td>
+                      <td>Created at</td>
+                      <td>Updated at</td>
+                    </tr>
+                  </thead> 
+                  <tbody>
+                    {% with outerCount=forloop.counter %}
+                      {% for procedureApplication in procedure.list %}
+                        <tr>
+                          <td>
+                            <div class="dropdown">
+                              <div tabindex="0" role="button" class="btn btn-primary m-1"><i class="fas fa-ellipsis"></i></div>
+                              <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow-2xl bg-base-200 rounded-box w-52">
+                                <li><a class="text-error" onclick="modal_{{outerCount}}_{{forloop.counter}}.showModal()"><i class="fas fa-trash"></i>Delete</a></li>
+                              </ul>
+                            </div>
+                            <dialog id="modal_{{outerCount}}_{{forloop.counter}}" class="modal">
+                              <div class="modal-box">
+                                <h3 class="font-bold text-lg">Delete confirmation</h3>
+                                <p class="py-4">Are you sure you want the procedure application "{{procedure.grouper}}" done by "{{procedureApplication.medicalStaff.firstName}} {{procedureApplication.medicalStaff.lastName}}"</p>
+                                <div class="modal-action">
+                                  <form action="{% url "delete-procedure-application" procedureApplicationId=procedureApplication.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-error">Delete</button>
+                                  </form>
+                                  <form method="dialog">
+                                    <button class="btn">Close</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </dialog>   
+                          </td>
+                          <td>{{procedureApplication.medicalStaff.id}}</td> 
+                          <td>{{procedureApplication.medicalStaff.department}}</td>
+                          <td>{{procedureApplication.medicalStaff.speciality}}</td>
+                          <td>{{procedureApplication.medicalStaff.firstName}}</td> 
+                          <td>{{procedureApplication.medicalStaff.lastName}}</td> 
+                          <td>{{procedureApplication.medicalStaff.dateOfBirth}}</td> 
+                          <td>{{procedureApplication.medicalStaff.address}}</td> 
+                          <td>{{procedureApplication.medicalStaff.phoneNumber}}</td>
+                          <td>{{procedureApplication.medicalStaff.email}}</td>
+                          <td>{{procedureApplication.medicalStaff.gender}}</td>
+                          <td>{{procedureApplication.medicalStaff.createdAt}}</td>
+                          <td>{{procedureApplication.medicalStaff.updatedAt}}</td>
+                        </tr>
+                      {% endfor %}
+                    {% endwith %}
+                  </tbody> 
+                </table>
+              </div>
+            </div>
+
+
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="flex flex-col items-center mt-[5rem]">
+          <img class="w-[30%]" src="{% static "assets/empty-list.svg" %}" alt="empty-list">
+          <div class="text-[20pt]">No procedures applied</div>
+        </div>
+      {% endif %}
+
+      <div class="divider my-[2rem]"></div>
+
+      <a class="flex" href="{% url "add-prescription" appointmentId=appointment.id %}">
+        <button class="btn btn-primary btn-outline flex flex-1 mt-[1rem]"><fas class="fa-plus"></fas>Add prescription</button>
+      </a>
+
+      <div class="text-[25pt] font-bold my-[2rem]"><i class="fas fa-list-check text-primary mr-[1rem]"></i>Prescriptions</div>
+      {% if prescriptions.count > 0 %}
+        <div class="overflow-x-auto flex-1 flex items-start">
+          <table class="table table-pin-rows table-pin-cols table-zebra">
+            <thead>
+              <tr>
+                <td></td>
+                <td>Id</td> 
+                <td>Content</td> 
+              </tr>
+            </thead> 
+            <tbody>
+              {% for prescription in prescriptions %}
+                <tr>
+                  <td>
+                    <div class="dropdown">
+                      <div tabindex="0" role="button" class="btn btn-primary m-1"><i class="fas fa-ellipsis"></i></div>
+                      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow-2xl bg-base-200 rounded-box w-52">
+                        <li><a href="{% url "edit-prescription" prescriptionId=prescription.id %}"><i class="fas fa-pen"></i>Edit</a></li>
+                        <li><a class="text-error" onclick="modal_{{forloop.counter}}.showModal()"><i class="fas fa-trash"></i>Delete</a></li>
+                      </ul>
+                    </div>
+                    <dialog id="modal_{{forloop.counter}}" class="modal">
+                      <div class="modal-box">
+                        <h3 class="font-bold text-lg">Delete confirmation</h3>
+                        <p class="py-4">Are you sure you want to delete prescription of {{appointment.timestamp}}</p>
+                        <div class="modal-action">
+                          <form action="{% url "delete-prescription" prescriptionId=prescription.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-error">Delete</button>
+                          </form>
+                          <form method="dialog">
+                            <button class="btn">Close</button>
+                          </form>
+                        </div>
+                      </div>
+                    </dialog>   
+                  </td>
+                  <td>{{prescription.id}}</td> 
+                  <td>{{prescription.content}}</td> 
+                </tr>
+              {% endfor %}
+            </tbody> 
+          </table>
+        </div>
+      {% else %}
+        <div class="flex flex-col items-center mt-[5rem]">
+          <img class="w-[30%]" src="{% static "assets/empty-list.svg" %}" alt="empty-list">
+          <div class="text-[20pt]">No prescriptions</div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock dashboard_content %}

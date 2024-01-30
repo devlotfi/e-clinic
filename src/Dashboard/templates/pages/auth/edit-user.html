@@ -1,0 +1,93 @@
+{% extends "layouts/dashboard.html" %} 
+{% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
+  <title>Edit user</title>
+{% endblock head %} 
+
+{% block dashboard_content %}
+  <div class="flex flex-1 flex-col items-center pb-[5rem]">
+    <form class="flex flex-1 flex-col w-[90%] max-w-[50rem]" action="" method="post">
+      {% csrf_token %}
+
+      <div class="flex mb-[1rem]">
+        <a class="btn btn-wide" href="{% url "dashboard" %}"><i class="fas fa-angle-left"></i>Back to dashboard</a>
+      </div>
+  
+      <div class="text-[30pt] font-bold"><i class="fas fa-plus text-primary mr-[1rem]"></i>Edit user</div>
+
+      {% if form.errors %}
+        <div role="alert" class="alert alert-error mt-[1rem]">
+          <i class="fas fa-times"></i>
+          <span>{{form.errors}}</span>
+        </div>
+      {% endif %}
+
+      <div class="flex justify-between">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Is superuser</span>
+          </div>
+          {% render_field form.is_superuser class+="checkbox" %}
+        </label>
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Is staff</span>
+          </div>
+          {% render_field form.is_staff class+="checkbox" %}
+        </label>
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Is active</span>
+          </div>
+          {% render_field form.is_active class+="checkbox" %}
+        </label>
+      </div>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Groups</span>
+        </div>
+        {% render_field form.groups class+="select select-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Permissions</span>
+        </div>
+        {% render_field form.user_permissions class+="select select-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Username</span>
+        </div>
+        {% render_field form.username class+="input input-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">First name</span>
+        </div>
+        {% render_field form.first_name class+="input input-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Last name</span>
+        </div>
+        {% render_field form.last_name class+="input input-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Email</span>
+        </div>
+        {% render_field form.email class+="input input-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Date joined</span>
+        </div>
+        {% render_field form.date_joined hidden="true" class+="input input-bordered w-full" %}
+      </label>
+
+      <button class="btn btn-primary mt-[2rem]"><i class="fas fa-plus"></i>Edit user</button>
+    </form>
+  </div>
+{% endblock dashboard_content %}

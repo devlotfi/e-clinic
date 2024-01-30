@@ -1,0 +1,190 @@
+{% extends "layouts/dashboard.html" %} 
+{% load static %}
+
+{% block head %}
+  <script src="{% static "chart/chart.js" %}" defer></script>
+  <title>Dashboard</title>
+{% endblock head %} 
+
+{% block dashboard_content %}
+  <div class="flex flex-col px-[1rem]">
+    <div class="grid grid-cols-2 md:grid-cols-3 auto-cols-max gap-4">
+      <div class="stats bg-base-200">
+        <div class="stat">
+          <div class="stat-title font-bold">Total patients</div>
+          <div class="stat-value text-primary">{{patientCount}}</div>
+        </div>
+      </div>
+      <div class="stats bg-base-200">
+        <div class="stat">
+          <div class="stat-title font-bold">Total medical staff</div>
+          <div class="stat-value text-primary">{{medicalStaffCount}}</div>
+        </div>
+      </div>
+      <div class="stats bg-base-200">
+        <div class="stat">
+          <div class="stat-title font-bold">Total departments</div>
+          <div class="stat-value text-primary">{{departmentCount}}</div>
+        </div>
+      </div>
+      <div class="stats bg-base-200">
+        <div class="stat">
+          <div class="stat-title font-bold">Total specialities</div>
+          <div class="stat-value text-primary">{{specialityCount}}</div>
+        </div>
+      </div>
+      <div class="stats bg-base-200">
+        <div class="stat">
+          <div class="stat-title font-bold">Total appointments</div>
+          <div class="stat-value text-primary">{{appointmentCount}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 auto-cols-max gap-[1rem] mt-[2rem] pb-[7rem]">
+      <div class="h-[20rem]">
+        <canvas id="staff-per-speciality"></canvas>
+      </div>
+      <div class="h-[20rem]">
+        <canvas id="staff-per-department"></canvas>
+      </div>
+      <div class="h-[20rem]">
+        <canvas id="patient-count-by-gender"></canvas>
+      </div>
+      <div class="h-[20rem]">
+        <canvas id="medical-staff-count-by-gender"></canvas>
+      </div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        const staffPerSpeciality = document.getElementById('staff-per-speciality');
+        const staffPerDepartment = document.getElementById('staff-per-department');
+        const procedureApplicationPerProcedure = document.getElementById('procedure-application-per-procedure');
+        const patientCountByGender = document.getElementById('patient-count-by-gender');
+        const medicalStaffCountByGender = document.getElementById('medical-staff-count-by-gender');
+
+        new Chart(staffPerDepartment, {
+          type: 'bar',
+          data: {
+            labels: [
+              {% for key in departmentMedicalStaffCountKeys %}
+                "{{key}}",
+              {% endfor %}
+            ],
+            datasets: [{
+              label: 'Medical staff per department',
+              backgroundColor: 'rgba(34, 244, 238, 0.5)',
+              data: [
+                {% for key in departmentMedicalStaffCountValues %}
+                  {{key}},
+                {% endfor %}
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          }
+        });
+        new Chart(staffPerSpeciality, {
+          type: 'bar',
+          data: {
+            labels: [
+              {% for key in specialityMedicalStaffCountKeys %}
+                "{{key}}",
+              {% endfor %}
+            ],
+            datasets: [{
+              label: 'Medical staff per speciality',
+              backgroundColor: 'rgba(34, 244, 238, 0.5)',
+              data: [
+                {% for key in specialityMedicalStaffCountValues %}
+                  {{key}},
+                {% endfor %}
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          }
+        });   
+        new Chart(procedureApplicationPerProcedure, {
+          type: 'bar',
+          data: {
+            labels: [
+              {% for key in procedureApplicationCountKeys %}
+                "{{key}}",
+              {% endfor %}
+            ],
+            datasets: [{
+              label: 'Procedure applications per procedure type',
+              backgroundColor: 'rgba(34, 244, 238, 0.5)',
+              data: [
+                {% for key in procedureApplicationCountValues %}
+                  {{key}},
+                {% endfor %}
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          }
+        });
+        new Chart(patientCountByGender, {
+          type: 'bar',
+          data: {
+            labels: [
+              {% for key in patientCountByGenderKeys %}
+                "{{key}}",
+              {% endfor %}
+            ],
+            datasets: [{
+              label: 'Patient count by gender',
+              backgroundColor: 'rgba(34, 244, 238, 0.5)',
+              data: [
+                {% for key in patientCountByGenderValues %}
+                  {{key}},
+                {% endfor %}
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          }
+        });
+        new Chart(medicalStaffCountByGender, {
+          type: 'bar',
+          data: {
+            labels: [
+              {% for key in medicalStaffCountByGenderKeys %}
+                "{{key}}",
+              {% endfor %}
+            ],
+            datasets: [{
+              label: 'Medical staff count by gender',
+              backgroundColor: 'rgba(34, 244, 238, 0.5)',
+              data: [
+                {% for key in medicalStaffCountByGenderValues %}
+                  {{key}},
+                {% endfor %}
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          }
+        });
+      };
+    </script>
+  </div>
+{% endblock dashboard_content %}

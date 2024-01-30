@@ -1,0 +1,56 @@
+{% extends "layouts/dashboard.html" %} 
+{% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
+  <title>Edit medical history of {{patient.firstName}} {{patient.lastName}}</title>
+{% endblock head %} 
+
+{% block dashboard_content %}
+  <div class="flex flex-1 flex-col items-center pb-[5rem]">
+    <form class="flex flex-1 flex-col w-[90%] max-w-[50rem]" action="" method="post">
+      {% csrf_token %}
+
+      <div class="flex mb-[1rem]">
+        <a class="btn btn-wide" href="{% url "patient-list" %}"><i class="fas fa-angle-left"></i>Back to patient list</a>
+      </div>
+  
+      <div class="text-[30pt] font-bold"><i class="fas fa-clock-rotate-left text-primary mr-[1rem]"></i>Edit medical history</div>
+      <div class="text-[15pt] font-semibold ml-[1rem] mb-[1rem]"><i class="fas fa-user text-primary mr-[1rem]"></i>Patient: {{patient.firstName}} {{patient.lastName}}</div>
+
+      {% if form.errors %}
+        <div role="alert" class="alert alert-error mt-[1rem]">
+          <i class="fas fa-times"></i>
+          <span>{{form.errors}}</span>
+        </div>
+      {% endif %}
+
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Notes</span>
+        </div>
+        {% render_field form.notes placeholder="Notes" class+="textarea textarea-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Allergies</span>
+        </div>
+        {% render_field form.allergies placeholder="Allergies" class+="textarea textarea-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Surgeries</span>
+        </div>
+        {% render_field form.surgeries placeholder="Surgeries" class+="textarea textarea-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Medications</span>
+        </div>
+        {% render_field form.medications placeholder="Medications" class+="textarea textarea-bordered w-full" %}
+      </label>
+
+      <button class="btn btn-primary mt-[2rem]"><i class="fas fa-plus"></i>Update patient</button>
+    </form>
+  </div>
+{% endblock dashboard_content %}

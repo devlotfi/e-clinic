@@ -1,0 +1,60 @@
+{% extends "layouts/dashboard.html" %} 
+{% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
+  <title>Edit procedure</title>
+{% endblock head %} 
+
+{% block dashboard_content %}
+  <div class="flex flex-1 flex-col items-center pb-[5rem]">
+    <form class="flex flex-1 flex-col w-[90%] max-w-[50rem]" action="" method="post">
+      {% csrf_token %}
+
+      <div class="flex mb-[1rem]">
+        <a class="btn btn-wide" href="{% url "procedure-list" %}"><i class="fas fa-angle-left"></i>Back to procedure list</a>
+      </div>
+  
+      <div class="text-[30pt] font-bold"><i class="fas fa-pen text-primary mr-[1rem]"></i>Edit procedure</div>
+
+      {% if messages %}
+        {% for message in messages %}
+          {% if message.tags == 'success' %}
+            <div role="alert" class="alert alert-success mt-[1rem]">
+              <i class="fas fa-check"></i>
+              <span>{{message}}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      {% if form.errors %}
+        <div role="alert" class="alert alert-error mt-[1rem]">
+          <i class="fas fa-times"></i>
+          <span>{{form.errors}}</span>
+        </div>
+      {% endif %}
+
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Name</span>
+        </div>
+        {% render_field form.name placeholder="Name" class+="input input-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Department</span>
+        </div>
+        {% render_field form.department placeholder="Name" class+="select select-bordered w-full" %}
+      </label>
+      <label class="form-control w-full">
+        <div class="label">
+          <span class="label-text">Type</span>
+        </div>
+        {% render_field form.type class+="select select-bordered" %}
+      </label>
+
+      <button class="btn btn-primary mt-[2rem]"><i class="fas fa-plus"></i>Edit procedure</button>
+    </form>
+  </div>
+{% endblock dashboard_content %}

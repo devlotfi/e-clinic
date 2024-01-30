@@ -1,0 +1,20 @@
+{% extends "layouts/base.html" %} 
+{% load static %}
+
+{% block head %}
+  <title>Welcome to E-Clinic</title>
+{% endblock head %} 
+
+{% block content %}
+  {% include "components/navbar-simple.html" %}
+  <div class="flex flex-1 lg:p-[2rem] bg-[url('/static/assets/wave.svg')] bg-no-repeat bg-cover bg-bottom">
+    <div class="flex flex-1 flex-col lg:rounded-[20px] justify-center p-[3rem] text-center">
+      <div class="font-bold text-[30pt] text-base-content">Welcome to E-Clinic</div>
+      <div class="font-bold text-[13pt] text-base-content">E-Clinic is a general medical deprtement management software</div>
+      <a href="{% url "sign-in" %}"><button class="btn btn-primary mt-[1rem]"><i class="fas fa-right-to-bracket"></i> Sign in</button></a>
+    </div>
+    <div class="flex-1 px-[2rem] w-full justify-center items-center hidden lg:flex">
+      <img class="h-[70%]" src="{% static "assets/hospital-drawing.svg" %}" alt="hospital">
+    </div>
+  </div>
+{% endblock content %}
