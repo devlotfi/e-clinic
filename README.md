@@ -1,2 +1,2 @@
 # EClinic
- A medical management system
+ A medical management system project
