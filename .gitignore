@@ -1,4 +1,5 @@
-venv
+.venv
+.yarn
 node_modules
 *.pyc
 src/staticfiles

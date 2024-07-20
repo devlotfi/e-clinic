@@ -1,13 +1,13 @@
 {
   "name": "e-clinic",
-  "repository": "https://github.com/lotfi165/EClinic.git",
+  "repository": "https://github.com/lotfi165/e-clinic.git",
   "private": true,
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@4.3.1",
   "scripts": {
     "dev": "tailwindcss -i src/Dashboard/static/css/tailwind/input.css -o src/Dashboard/static/css/compiled/compiled.css --watch"
   },
   "devDependencies": {
-    "daisyui": "^4.6.0",
-    "tailwindcss": "^3.4.1"
+    "daisyui": "^4.12.10",
+    "tailwindcss": "^3.4.6"
   }
 }
