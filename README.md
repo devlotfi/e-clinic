@@ -11,3 +11,27 @@ A medical management system, that allows simplifies managing patients, staff, ap
 <img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-5.png">
 <img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-6.png">
 <img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-7.png">
+
+## Project Setup
+
+### Install
+
+Make sure you have "Poetry" package manager installed or run
+
+
+```bash
+$ pip install poetry
+```
+
+Then install the dependencies 
+
+```bash
+$ poetry install --no-root
+```
+
+### Development
+
+```bash
+$ poetry run python src/manage.py runserver
+```
+
