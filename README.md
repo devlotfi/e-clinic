@@ -10,13 +10,11 @@ A medical management system, that allows simplifies managing patients, staff, ap
 
 # 💻 Tech stack
 <div style="display: flex; flex-wrap: wrap;">
-	<img src="https://skillicons.dev/icons?i=html" />
-	<img src="https://skillicons.dev/icons?i=css" />
-	<img src="https://skillicons.dev/icons?i=tailwind" />
-	<img src="https://skillicons.dev/icons?i=typescript" />
-	<img src="https://skillicons.dev/icons?i=python" />
-	<img src="https://skillicons.dev/icons?i=django" />
-	<img src="https://skillicons.dev/icons?i=postgres" />
+	<span><img src="https://skillicons.dev/icons?i=html" /></span>
+	<span><img src="https://skillicons.dev/icons?i=html" /></span>
+	<span><img src="https://skillicons.dev/icons?i=html" /></span>
+	<span><img src="https://skillicons.dev/icons?i=html" /></span>
+	<span><img src="https://skillicons.dev/icons?i=html" /></span>
 </div>
 
 # 📷 Preview
