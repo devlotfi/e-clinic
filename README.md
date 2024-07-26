@@ -9,14 +9,14 @@ A medical management system, that allows simplifies managing patients, staff, ap
 - [Project setup](#-project-setup)
 
 # 💻 Tech stack
-<div>
+<span>
   <span><img src="https://skillicons.dev/icons?i=html" /></span>
   <span><img src="https://skillicons.dev/icons?i=css" /></span>
   <span><img src="https://skillicons.dev/icons?i=tailwind" /></span>
   <span><img src="https://skillicons.dev/icons?i=python" /></span>
   <span><img src="https://skillicons.dev/icons?i=django" /></span>
   <span><img src="https://skillicons.dev/icons?i=sqlite" /></span>
-</div>
+</span>
 
 # 📷 Preview
 
