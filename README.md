@@ -9,7 +9,36 @@ A medical management system, that allows simplifies managing patients, staff, ap
 - [Project setup](#-project-setup)
 
 # 💻 Tech stack
-<img src="https://skillicons.dev/icons?i=html,css,tailwind,typescript,python,django,postgres&perline=5" />
+<table>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=html" /></td>
+    <td>HTML</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=css" /></td>
+    <td>CSS</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=tailwind" /></td>
+    <td>Tailwind CSS</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=typescript" /></td>
+    <td>Typescript</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=python" /></td>
+    <td>Python</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=django" /></td>
+    <td>Django</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=postgres" /></td>
+    <td>Postgres</td>
+  </tr>
+</table>
 
 # 📷 Preview
 
