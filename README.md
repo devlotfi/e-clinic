@@ -5,8 +5,8 @@ A medical management system, that allows simplifies managing patients, staff, ap
 
 # 📌 Contents
 - [Tech stack](#-tech-stack)
-- [Preview](#-preview)
 - [Project setup](#-project-setup)
+- [Preview](#-preview)
 
 # 💻 Tech stack
 <img src="https://skillicons.dev/icons?i=html,css,tailwind,python,django,sqlite&perline=5" />
