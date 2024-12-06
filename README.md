@@ -9,7 +9,24 @@ A medical management system, that allows simplifies managing patients, staff, ap
 - [Preview](#-preview)
 
 # 💻 Tech stack
-<img src="https://skillicons.dev/icons?i=html,css,tailwind,python,django,sqlite&perline=5" />
+
+## Frontend
+
+<p float="left">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/html.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/css.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/tailwind.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/fontawesome.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/daisyui.svg">
+</p>
+
+## Backend
+
+<p float="left">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/django.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/sqlite.svg">
+  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/python.svg">
+</p>
 
 # 📂 Project Setup
 
