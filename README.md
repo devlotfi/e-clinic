@@ -1,7 +1,20 @@
-<img height="100px" width="100px" src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/logo.svg">
+<table>
+  <tr>
+    <td>
+      <img height="100px" width="100px" src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/logo.svg">
+    </td>
+    <td>
+      <img height="100px" width="100px" src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/usthb.svg">
+    </td>
+  </tr>
+</table>
 
 # 📜 e-clinic
 A medical management system, that allows simplifies managing patients, staff, appointments and medical procedures
+
+## 🏫 USTHB University Project
+
+This This project was completed as part of the **Information Systems 2 (SI2)** module at **USTHB** during the **2023/2024 year L3 semester 5**.
 
 # 📌 Contents
 - [Tech stack](#-tech-stack)
