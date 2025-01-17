@@ -26,19 +26,19 @@ This This project was completed as part of the **Information Systems 2 (SI2)** m
 ## Frontend
 
 <p float="left">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/html.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/css.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/tailwind.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/fontawesome.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/daisyui.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/html.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/css.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/tailwind.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/fontawesome.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/daisyui.svg">
 </p>
 
 ## Backend
 
 <p float="left">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/django.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/sqlite.svg">
-  <img height="50px" src="https://github.com/devlotfi/stack-icons/blob/main/icons/python.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/django.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/sqlite.svg">
+  <img height="50px" src="https://devlotfi.github.io/stack-icons/icons/python.svg">
 </p>
 
 # 📂 Project Setup
