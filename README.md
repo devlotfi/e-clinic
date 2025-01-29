@@ -1,10 +1,10 @@
 <table>
   <tr>
     <td>
-      <img height="100px" width="100px" src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/logo.svg">
+      <img height="100px" width="100px" src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/logo.svg">
     </td>
     <td>
-      <img height="100px" width="100px" src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/usthb.svg">
+      <img height="100px" width="100px" src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/usthb.svg">
     </td>
   </tr>
 </table>
@@ -69,11 +69,11 @@ $ yarn run dev
 
 # 📷 Preview
 
-<img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-1.png">
-<img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-2.png">
-<img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-3.png">
-<img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-4.png">
-<img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-5.png">
-<img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-6.png">
-<img src="https://github.com/devlotfi/e-clinic/blob/main/github-assets/preview-7.png">
+<img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/preview-1.png">
+<img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/preview-2.png">
+<img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/preview-3.png">
+<img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/preview-4.png">
+<img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/preview-5.png">
+<img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/preview-6.png">
+<img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/preview-7.png">
 
