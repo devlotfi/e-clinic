@@ -1,4 +1,5 @@
 <img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/github-banner.png">
+<img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/university-project.png">
 
 # 📜 e-clinic
 A medical management system, that allows simplifies managing patients, staff, appointments and medical procedures
