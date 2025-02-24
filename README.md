@@ -1,13 +1,4 @@
-<table>
-  <tr>
-    <td>
-      <img height="100px" width="100px" src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/logo.svg">
-    </td>
-    <td>
-      <img height="100px" width="100px" src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/usthb.svg">
-    </td>
-  </tr>
-</table>
+<img src="https://raw.githubusercontent.com/devlotfi/e-clinic/main/github-assets/github-banner.png">
 
 # 📜 e-clinic
 A medical management system, that allows simplifies managing patients, staff, appointments and medical procedures
