@@ -8,6 +8,10 @@ A medical management system, that allows simplifies managing patients, staff, ap
 
 This This project was completed as part of the **Information Systems 2 (SI2)** module at **USTHB** during the **2023/2024 year L3 semester 5**.
 
+**Project development:** Debbal Lotfi
+
+**Project report:** Tehar Ahmed
+
 # 📌 Contents
 - [Tech stack](#-tech-stack)
 - [Project setup](#-project-setup)
